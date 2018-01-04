@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="game" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="bg_png" bottom="0" horizontalCenter="0" locked="true"/>
+	<e:CheckBox id="coin_check1" label="" x="30" y="694" locked="true">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="xinshou_1_png" source.down="xinshou_3_png" source.disabled="xinshou_3_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:CheckBox>
+	<e:CheckBox id="coin_check2" label="" x="136" y="694" locked="true">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="jinbi_1_png" source.down="jinbi_3_png" source.disabled="jinbi_3_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:CheckBox>
+	<e:Button id="guanbi" label="" x="452" y="698" scaleX="1.5" scaleY="1.5" locked="true">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="guanbi_1_png" source.down="guanbi_2_png" source.disabled="guanbi_2_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="bangzhu" label="" x="548" y="698" scaleX="1.5" scaleY="1.5" locked="true">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="shuoming_1_png" source.down="shuoming_2_png" source.disabled="shuoming_2_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="chongzhi" label="" x="15.33" y="1071.33" touchEnabled="true" locked="true">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="scoreBg_png" source.down="scoreBg_png" source.disabled="scoreBg_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Image id="coin_mark" source="jinbi_png" x="26.99" y="1080.67" scaleX="0.5" scaleY="0.5" touchEnabled="false" locked="true"/>
+	<e:Label id="qianshu" text="00000" x="63" y="1087" size="22" touchEnabled="false" locked="true"/>
+	<e:Label id="chongzhi_font" text="充值" x="139.67" y="1087" size="22" textColor="0xedbf44" touchEnabled="false" locked="true"/>
+	<e:CheckBox id="choice1" label="" x="248.84" y="1067" width="60" height="60" locked="true">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="choice_1_png" source.down="choice_2_png" source.disabled="choice_2_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:CheckBox>
+	<e:Image id="choice_coin1" source="jinbi_png" x="269.15" y="1074" scaleX="0.3" scaleY="0.3" touchEnabled="false" locked="true"/>
+	<e:Label text="100" x="261.5" y="1100" size="20" touchEnabled="false" locked="true"/>
+	<e:CheckBox id="choice2" label="" x="324.83" y="1067" width="60" height="60" locked="true">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="choice_1_png" source.down="choice_2_png" source.disabled="choice_2_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:CheckBox>
+	<e:Image id="choice_coin2" source="jinbi_png" x="344.81" y="1074" scaleX="0.3" scaleY="0.3" touchEnabled="false" locked="true"/>
+	<e:Label text="1K" x="341.16" y="1100" size="20" touchEnabled="false" locked="true"/>
+	<e:CheckBox id="choice3" label="" x="400.17" y="1067" width="60" height="60" locked="true">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="choice_1_png" source.down="choice_2_png" source.disabled="choice_2_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:CheckBox>
+	<e:Image id="choice_coin3" source="jinbi_png" x="420.14" y="1074" scaleX="0.3" scaleY="0.3" touchEnabled="false" locked="true"/>
+	<e:Label text="1W" x="413.99" y="1100" size="20" touchEnabled="false" locked="true"/>
+	<e:CheckBox id="choice4" label="" x="476.75" y="1067" width="60" height="60" locked="true">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="choice_1_png" source.down="choice_2_png" source.disabled="choice_2_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:CheckBox>
+	<e:Image id="choice_coin4" source="jinbi_png" x="497.72" y="1074" scaleX="0.3" scaleY="0.3" touchEnabled="false" locked="true"/>
+	<e:Label text="10W" x="487.32" y="1100" size="20" touchEnabled="false" locked="true"/>
+	<e:Button id="lishi" label="" x="553" y="1058.5" locked="true">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="lishi_png" source.down="lishi_png" source.disabled="lishi_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Group id="zhunbei" width="100%" height="270" y="781" horizontalCenter="0" visible="false">
+		<e:Image source="zhouyu_png" y="4" right="-14" x="438" scaleX="1" scaleY="1" locked="true"/>
+		<e:Image source="zhugeliang_png" y="12" horizontalCenter="8" x="220" scaleX="1" scaleY="1" locked="true"/>
+		<e:Image source="simayi_png" y="10" left="2" x="2" scaleX="1" scaleY="1" locked="true"/>
+	</e:Group>
+	<e:Group id="touzhu" width="100%" height="270" y="781" x="0" visible="false">
+		<e:Image id="wei_bg" source="bgEffect_png" scale9Grid="1,1,8,8" width="213" height="100%" verticalCenter="0" left="0" x="0" y="0" scaleX="1" scaleY="1" visible="false" locked="true"/>
+		<e:Image id="shu_bg" source="bgEffect_png" scale9Grid="1,1,8,8" width="213" height="100%" verticalCenter="0" horizontalCenter="-0.5" visible="false" locked="true"/>
+		<e:Image id="wu_bg" source="bgEffect_png" scale9Grid="1,1,8,8" width="214" height="100%" verticalCenter="0" right="0" visible="false" locked="true"/>
+		<e:Image source="zhouyu_png" y="85.33" right="70" x="438" scaleX="0.7" scaleY="0.7" locked="true"/>
+		<e:Image source="zhugeliang_png" y="91.33" horizontalCenter="-42.5" x="220" scaleX="0.7" scaleY="0.7" locked="true"/>
+		<e:Image source="simayi_png" y="89.33" left="-24" x="2" scaleX="0.7" scaleY="0.7" locked="true"/>
+		<e:Image id="weiScoreBg" source="simayi_bg_png" x="62" y="103.33" locked="true"/>
+		<e:Image id="shuScoreBg" source="zhugeliang_bg_png" y="103.33" horizontalCenter="26" locked="true"/>
+		<e:Image id="wuScoreBg" source="zhouyu_bg_png" x="500" y="103.33" locked="true"/>
+		<e:Image id="wei_1" source="wei_bg_png" x="24.17" y="12"/>
+		<e:Image id="wei_2" source="wei_bg_png" x="68" y="12"/>
+		<e:Image id="wei_3" source="wei_bg_png" x="111.99" y="12"/>
+		<e:Image id="shu_1" source="shu_bg_png" x="252.33" y="12"/>
+		<e:Image id="shu_2" source="shu_bg_png" x="295.67" y="12"/>
+		<e:Image id="shu_3" source="shu_bg_png" x="338.99" y="12" locked="true"/>
+		<e:Image id="wu_1" source="wu_bg_png" x="471.66" y="12" locked="true"/>
+		<e:Image id="wu_2" source="wu_bg_png" x="515.67" y="12" locked="true"/>
+		<e:Image id="wu_3" source="wu_bg_png" x="560.32" y="12" locked="true"/>
+		<e:Image id="wei_coin1" source="jinbi_png" x="85" y="160" scaleX="0.3" scaleY="0.3" touchEnabled="false"/>
+		<e:Image id="shu_coin1" source="jinbi_png" x="305" y="160" scaleX="0.3" scaleY="0.3" touchEnabled="false"/>
+		<e:Image id="wu_coin1" source="jinbi_png" x="525" y="160" scaleX="0.3" scaleY="0.3" touchEnabled="false"/>
+		<e:Image id="wei_coin2" source="jinbi_png" x="85" y="213" scaleX="0.3" scaleY="0.3" touchEnabled="false"/>
+		<e:Image id="shu_coin2" source="jinbi_png" x="305" y="213" scaleX="0.3" scaleY="0.3" touchEnabled="false"/>
+		<e:Image id="wu_coin2" source="jinbi_png" x="525" y="213" scaleX="0.3" scaleY="0.3" touchEnabled="false"/>
+		<e:Label id="wei_all" text="?" horizontalCenter="-191" textColor="0xf4a149" size="15" touchEnabled="false" y="164" locked="true"/>
+		<e:Label id="wei_one" text="?" horizontalCenter="-190.5" verticalCenter="91" size="15" textColor="0xf2511f" touchEnabled="false" locked="true"/>
+		<e:Label id="shu_all" text="?" horizontalCenter="28.5" textColor="0xF4A149" size="15" y="164" touchEnabled="false" locked="true"/>
+		<e:Label id="shu_one" text="?" horizontalCenter="27.5" textColor="0xF2511F" size="15" y="216" touchEnabled="false" locked="true"/>
+		<e:Label id="wu_all" text="?" horizontalCenter="249.5" textColor="0xF4A149" size="15" y="164" touchEnabled="false" locked="true"/>
+		<e:Label id="wu_one" text="?" horizontalCenter="248.5" textColor="0xF2511F" size="15" y="216" touchEnabled="false" locked="true"/>
+		<e:Image id="timeoutBg" source="timeOut_bg_png" y="61.2" horizontalCenter="0" touchEnabled="false" locked="true"/>
+		<e:Label id="timeout" text="0" y="78" horizontalCenter="0" textColor="0xe83737" touchEnabled="false" locked="true"/>
+	</e:Group>
+	<e:Group id="mingpai" width="100%" height="270" y="781" horizontalCenter="0" visible="false">
+		<e:Image id="wei_show1" source="f_1_png" x="24.4" y="12" locked="true"/>
+		<e:Image id="wei_show2" source="f_1_png" x="68" y="12" locked="true"/>
+		<e:Image id="wei_show3" source="f_1_png" x="111.8" y="12" locked="true"/>
+		<e:Image source="paimiandi_png" x="11.4" y="60.4" locked="true"/>
+		<e:Image id="wei_mark" source="duizi_mark_png" x="10.8" y="60.4" locked="true"/>
+		<e:Image id="shu_show1" source="f_1_png" x="252.8" y="12" locked="true"/>
+		<e:Image id="shu_show2" source="f_1_png" x="296.4" y="12" locked="true"/>
+		<e:Image id="shu_show3" source="f_1_png" x="340.2" y="12" locked="true"/>
+		<e:Image source="paimiandi_png" x="239.8" y="60.4" locked="true"/>
+		<e:Image id="shu_mark" source="duizi_mark_png" x="239.6" y="60.8" locked="true"/>
+		<e:Image id="wu_show1" source="f_1_png" x="472" y="12" locked="true"/>
+		<e:Image id="wu_show2" source="f_1_png" x="515.6" y="12" locked="true"/>
+		<e:Image id="wu_show3" source="f_1_png" x="560.32" y="12"/>
+		<e:Image source="paimiandi_png" x="459" y="60" locked="true"/>
+		<e:Image id="wu_mark" source="duizi_mark_png" x="459.2" y="60.4" locked="true"/>
+	</e:Group>
+	<e:Group id="jieguo" width="100%" height="270" x="0" y="781" visible="false">
+		<e:Image id="wei_mask" source="bgEffect_png" scale9Grid="1,1,8,8" width="213" height="100%" verticalCenter="0" left="0" locked="true" visible="false"/>
+		<e:Image id="shu_mask" source="bgEffect_png" scale9Grid="1,1,8,8" width="213" height="100%" horizontalCenter="-0.5" verticalCenter="0" locked="true" visible="false"/>
+		<e:Image id="wu_mask" source="bgEffect_png" scale9Grid="1,1,8,8" width="214" height="100%" verticalCenter="0" right="0" locked="true" visible="false"/>
+		<e:Image id="wei_win" source="sheng_paimian_png" x="105.67" y="185" anchorOffsetX="54" anchorOffsetY="54" locked="true" visible="false"/>
+		<e:Image id="shu_win" source="sheng_paimian_png" x="323.34" y="185" anchorOffsetX="54" anchorOffsetY="54" locked="true" visible="false"/>
+		<e:Image id="wu_win" source="sheng_paimian_png" x="543" y="185" anchorOffsetX="54" anchorOffsetY="54" locked="true" visible="false"/>
+	</e:Group>
+	<e:Group id="notice" width="100%" height="270" x="0" y="781" touchEnabled="false" visible="false">
+		<e:Image source="noticeBg_png" scaleX="0.5" scaleY="0.5" verticalCenter="0" horizontalCenter="0" touchEnabled="false" locked="true"/>
+		<e:Label id="noticeLabel" text="" horizontalCenter="0" verticalCenter="0" touchEnabled="false" locked="true"/>
+	</e:Group>
+</e:Skin>
