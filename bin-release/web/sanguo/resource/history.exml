@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="history" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Image source="bgEffect_png" x="0" y="0" width="100%" height="100%" locked="true"/>
-	<e:Image source="lishijilu_png" y="268" horizontalCenter="0"/>
-	<e:Scroller width="200" height="200" x="114" y="662">
-		<e:Group width="486"/>
-	</e:Scroller>
-</e:Skin>

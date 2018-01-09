@@ -15,10 +15,31 @@ class Data {
 
     public static game:Game = null;
 
-    public static getScore(data:any):void {
-        alert(data);
-        var commond01 = JSON.parse(data);
-        Data.game.updateMaxBet(1000,1,"coin");
+    public static getScore(camp:number, occasion:string, total:number):void {
+        Data.game.updateMaxBet(total, camp, occasion);
+    }
+
+    public static payBack(occasion:string, total:number) {
+        Data.game.updatePayBack(occasion, total);
+    }
+
+    public static close() {
+        console.log(">>>>>>>>>>>>>>>>>>closeWeb<<<<<<<<<<<<<<<<");
+        closeWeb();
+    }
+
+    public static pay() {
+        console.log(">>>>>>>>>>>>>>>>>>recharge<<<<<<<<<<<<<<<<");
+        recharge();
+    }
+
+    public static noMoney() {
+        console.log(">>>>>>>>>>>>>>>>>>notEnough<<<<<<<<<<<<<<<<");
+        notEnough();
+    }
+
+    public static winOrLose() {
+        console.log(">>>>>>>>>>>>>>>>>>bet<<<<<<<<<<<<<<<<");
+        bet();
     }
 }
-

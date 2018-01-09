@@ -156,6 +156,7 @@ var Main = (function (_super) {
         Data.silver = Utils.getArgsValue(Utils.getCurrHref(), "silver");
         Data.game = new Game();
         this.addChild(Data.game);
+        console.log(Utils.getPlatform());
     };
     return Main;
 }(eui.UILayer));

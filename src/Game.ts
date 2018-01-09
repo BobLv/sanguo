@@ -41,6 +41,7 @@ class Game extends eui.Component implements  eui.UIComponent {
 	private coin_mark:eui.Image = null;
 	private chongzhi_font:eui.Label = null;
 	private checkBet:number = 0;
+	private chongzhi:eui.Button = null;
 
 	private chip:any = null;
 	// 状态
@@ -81,6 +82,8 @@ class Game extends eui.Component implements  eui.UIComponent {
 	private result:Result = null;
 	private history:Lishi = null;
 	private lishi:eui.Button = null;
+	private guanbi:eui.Button = null;
+	private bangzhu:eui.Button = null;
 	private baseInfo = {
 			apiDomain: Data.apiDomain,//域名
 			uid: Data.uid ,						//用户id
@@ -174,7 +177,8 @@ class Game extends eui.Component implements  eui.UIComponent {
 		if (instance == this.qianshu ) {
 			instance.touchEnabled = false;
 		}
-		if (instance == this.weiScoreBg || instance == this.shuScoreBg || instance == this.wuScoreBg || instance == this.lishi) {
+		if (instance == this.weiScoreBg || instance == this.shuScoreBg || instance == this.wuScoreBg || instance == this.lishi || instance == this.guanbi || instance == this.bangzhu
+			|| instance == this.chongzhi) {
 			instance.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClick, this);
 		}
 		if (instance == this.wei_show1 || instance == this.wei_show2 || instance == this.wei_show3) {
@@ -213,12 +217,12 @@ class Game extends eui.Component implements  eui.UIComponent {
 				case this.coin_check1:
 				this.setCoinMarkTexture("yinbi_png");
 				this.moneyType = "silver";
-				this.updateScore(this.baseInfo.coin);
+				this.updateScore(this.baseInfo.silver);
 				break;
 				case this.coin_check2:
 				this.setCoinMarkTexture("jinbi_png");
 				this.moneyType = "coin";
-				this.updateScore(this.baseInfo.silver);
+				this.updateScore(this.baseInfo.coin);
 				break;
 			}
 			// 切换 金币 和 银币 之前的押注效果
@@ -369,6 +373,14 @@ class Game extends eui.Component implements  eui.UIComponent {
 					this.addChild(this.history);
 				});
 			break;
+			case this.guanbi:
+				Data.close();
+			break;
+			case this.bangzhu:
+			break;
+			case this.chongzhi:
+				Data.pay();
+			break;
 		}
 		if (target == this.weiScoreBg || target == this.shuScoreBg || target == this.wuScoreBg) {
 			var countryType = 0;
@@ -389,18 +401,22 @@ class Game extends eui.Component implements  eui.UIComponent {
 				// occasion string 押注场类型[金币场：coin|银币场：silver]之一
 				// camp int 押注阵营[魏：1|蜀：2|吴：3]之一
 				// amount int 押注金额
-				this.sendHttpServer("/q102/sgchipin?uid="+ this.baseInfo.uid + "&occasion=" + this.moneyType + "&camp=" + countryType + "&amount=" + this.checkBet, function(e:egret.Event){
-					var request = <egret.HttpRequest>e.currentTarget;
-					console.log("get data : ",request.response);
-        			var commond02 = JSON.parse(request.response);
-					if (commond02["code"] == 200) {
-						this.updateScore(commond02["data"]["remain"]);
-						// 押注
-						this.setBetValue(countryType);
-					}else if (commond02["code"] == 500) {
-						this.showNotice(decodeURIComponent(commond02["message"]));
-					}
-				});
+				if (this.baseInfo[this.moneyType] >= this.checkBet) {
+					this.sendHttpServer("/q102/sgchipin?uid="+ this.baseInfo.uid + "&occasion=" + this.moneyType + "&camp=" + countryType + "&amount=" + this.checkBet, function(e:egret.Event){
+						var request = <egret.HttpRequest>e.currentTarget;
+						console.log("get data : ",request.response);
+						var commond02 = JSON.parse(request.response);
+						if (commond02["code"] == 200) {
+							this.updateScore(commond02["data"]["remain"]);
+							// 押注
+							this.setBetValue(countryType);
+						}else if (commond02["code"] == 500) {
+							this.showNotice(decodeURIComponent(commond02["message"]));
+						}
+					});
+				}else {
+					Data.noMoney();
+				}
 			}
 		}
     }
@@ -412,6 +428,7 @@ class Game extends eui.Component implements  eui.UIComponent {
 			egret.Tween.get(this, {loop:false}).wait(3000).call(function(){
 				this.result = new Result(curWinScore, this.moneyType);
 				this.addChild(this.result);
+				Data.winOrLose();
 			}).wait(2000).call(function(){
 				if (this.result != null) {
 					this.removeChild(this.result);
@@ -443,7 +460,24 @@ class Game extends eui.Component implements  eui.UIComponent {
 	}
 
 	public updateMaxBet(betScore:number, index:number, type:string) {
-		console.log(betScore + index + type);
+		if (this.moneyType != type) return;
+		for (var i = 0; i < this.betAll.length; i++) {
+			if (index == i + 1) {
+				this.betAll[i].text = betScore.toString();
+				return;
+			}
+		}
+	}
+	public updatePayBack(occasion:string, total:number) {
+		var money = 0;
+		if (occasion == "coin") {
+			this.baseInfo.coin = total;
+			money = this.baseInfo.coin;
+		}else if (occasion == "silver") {
+			this.baseInfo.silver = total;
+			money = this.baseInfo.silver;
+		}
+		this.updateScore(money);
 	}
 
 	// 重新初始化

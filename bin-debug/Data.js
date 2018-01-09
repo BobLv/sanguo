@@ -5,10 +5,27 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 var Data = (function () {
     function Data() {
     }
-    Data.getScore = function (data) {
-        alert(data);
-        var commond01 = JSON.parse(data);
-        Data.game.updateMaxBet(1000, 1, "coin");
+    Data.getScore = function (camp, occasion, total) {
+        Data.game.updateMaxBet(total, camp, occasion);
+    };
+    Data.payBack = function (occasion, total) {
+        Data.game.updatePayBack(occasion, total);
+    };
+    Data.close = function () {
+        console.log(">>>>>>>>>>>>>>>>>>closeWeb<<<<<<<<<<<<<<<<");
+        closeWeb();
+    };
+    Data.pay = function () {
+        console.log(">>>>>>>>>>>>>>>>>>recharge<<<<<<<<<<<<<<<<");
+        recharge();
+    };
+    Data.noMoney = function () {
+        console.log(">>>>>>>>>>>>>>>>>>notEnough<<<<<<<<<<<<<<<<");
+        notEnough();
+    };
+    Data.winOrLose = function () {
+        console.log(">>>>>>>>>>>>>>>>>>bet<<<<<<<<<<<<<<<<");
+        bet();
     };
     //域名
     Data.apiDomain = "";
