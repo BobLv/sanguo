@@ -226,6 +226,8 @@ class Game extends eui.Component implements  eui.UIComponent {
 				this.updateScore(this.baseInfo.coin);
 				break;
 			}
+			// 重置押注总额
+			this.resetMaxBet();
 			// 切换 金币 和 银币 之前的押注效果
 			this.setBetValue(0);
 			if (this._state == 4 || this._state == 5) { // 名牌期
@@ -301,12 +303,15 @@ class Game extends eui.Component implements  eui.UIComponent {
 				// 获取本轮游戏开奖结果
 				// 无参数
 				if (this._state != state) {
+					this.showCardBase(false);
 					this.sendHttpServer("/q102/sgdisplay", function(e:egret.Event){
 						var request = <egret.HttpRequest>e.currentTarget;
 						console.log("get data : ",request.response);
         				var commond03 = JSON.parse(request.response);
 
 						if (commond03["code"] != 200) return ;
+
+						this.showCardBase(true);
 						this.showCard(commond03["data"]["cards"]);
 						this.winData = commond03["data"]["win"];
 					});
@@ -440,10 +445,10 @@ class Game extends eui.Component implements  eui.UIComponent {
 			});
 		}
 		// 赢取后改变总额
-		var curAllScore = data["remain"][this.moneyType];
+		var curAllScore = data["remain"][this.moneyType] + data["gain"][this.moneyType];
 		this.updateScore(curAllScore);
-		this.baseInfo.coin = data["remain"]["coin"];
-		this.baseInfo.silver = data["remain"]["silver"];
+		this.baseInfo.coin = data["remain"]["coin"] + data["gain"]["coin"];
+		this.baseInfo.silver = data["remain"]["silver"] + data["gain"]["silver"];
 	}
 
 	// 设置押注数值
@@ -480,10 +485,10 @@ class Game extends eui.Component implements  eui.UIComponent {
 
 	public updatePayBack(occasion:string, total:number) {
 		var money = 0;
-		if (occasion == "coin") {
+		if (occasion == "coin" && this.moneyType == "coin") {
 			this.baseInfo.coin = total;
 			money = this.baseInfo.coin;
-		}else if (occasion == "silver") {
+		}else if (occasion == "silver" && this.moneyType == "silver") {
 			this.baseInfo.silver = total;
 			money = this.baseInfo.silver;
 		}
@@ -492,6 +497,8 @@ class Game extends eui.Component implements  eui.UIComponent {
 
 	// 重新初始化
 	private replay() {
+		// 重置押注总额
+		this.resetMaxBet();
 		// 结果页遮罩效果初始化
 		for (var i = 0 ; i < this.results.length ; i++) {
 			this.results[i].visible = false;
@@ -601,6 +608,18 @@ class Game extends eui.Component implements  eui.UIComponent {
 			}else {
 				this.wu_cards[i].texture = RES.getRes(Utils.mixCard(wuData[i][0]) + "_" + Utils.mixCard(wuData[i][1]) + "_png");
 			}
+		}
+	}
+
+	private showCardBase(isShow:boolean) {
+		for (var i = 0; i < this.wei_cards.length; i++) {
+			this.wei_cards[i].visible = isShow;
+		}
+		for (var i = 0; i < this.shu_cards.length; i++) {
+			this.shu_cards[i].visible = isShow;
+		}
+		for (var i = 0; i < this.wu_cards.length; i++) {
+			this.wu_cards[i].visible = isShow;
 		}
 	}
 }

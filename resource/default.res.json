@@ -614,7 +614,7 @@
 		{
 			"url": "assets/res/new.png",
 			"type": "image",
-			"url": "assets/res/new.png"
+			"name": "new_png"
 		},
 		{
 			"name": "infoBg_png",

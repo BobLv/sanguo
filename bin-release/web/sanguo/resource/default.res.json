@@ -122,11 +122,6 @@
 			"name": "track_sb_png"
 		},
 		{
-			"url": "assets/bg.jpg",
-			"type": "image",
-			"name": "bg_jpg"
-		},
-		{
 			"url": "assets/egret_icon.png",
 			"type": "image",
 			"name": "egret_icon_png"
@@ -607,19 +602,19 @@
 			"name": "scoreBg_png"
 		},
 		{
-			"name": "historyBg_png",
+			"url": "assets/res/historyBg.png",
 			"type": "image",
-			"url": "assets/res/historyBg.png"
+			"name": "historyBg_png"
 		},
 		{
-			"name": "closeBtn_png",
+			"url": "assets/res/closeBtn.png",
 			"type": "image",
-			"url": "assets/res/closeBtn.png"
+			"name": "closeBtn_png"
 		},
 		{
-			"name": "new_png",
+			"url": "assets/res/new.png",
 			"type": "image",
-			"url": "assets/res/new.png"
+			"name": "new_png"
 		},
 		{
 			"name": "infoBg_png",

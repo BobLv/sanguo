@@ -230,6 +230,8 @@ var Game = (function (_super) {
                     this.updateScore(this.baseInfo.coin);
                     break;
             }
+            // 重置押注总额
+            this.resetMaxBet();
             // 切换 金币 和 银币 之前的押注效果
             this.setBetValue(0);
             if (this._state == 4 || this._state == 5) {
@@ -301,12 +303,14 @@ var Game = (function (_super) {
                 // 获取本轮游戏开奖结果
                 // 无参数
                 if (this._state != state) {
+                    this.showCardBase(false);
                     this.sendHttpServer("/q102/sgdisplay", function (e) {
                         var request = e.currentTarget;
                         console.log("get data : ", request.response);
                         var commond03 = JSON.parse(request.response);
                         if (commond03["code"] != 200)
                             return;
+                        this.showCardBase(true);
                         this.showCard(commond03["data"]["cards"]);
                         this.winData = commond03["data"]["win"];
                     });
@@ -440,10 +444,10 @@ var Game = (function (_super) {
             });
         }
         // 赢取后改变总额
-        var curAllScore = data["remain"][this.moneyType];
+        var curAllScore = data["remain"][this.moneyType] + data["gain"][this.moneyType];
         this.updateScore(curAllScore);
-        this.baseInfo.coin = data["remain"]["coin"];
-        this.baseInfo.silver = data["remain"]["silver"];
+        this.baseInfo.coin = data["remain"]["coin"] + data["gain"]["coin"];
+        this.baseInfo.silver = data["remain"]["silver"] + data["gain"]["silver"];
     };
     // 设置押注数值
     Game.prototype.setBetValue = function (cardIndex) {
@@ -470,13 +474,18 @@ var Game = (function (_super) {
             }
         }
     };
+    Game.prototype.resetMaxBet = function () {
+        for (var i = 0; i < this.betAll.length; i++) {
+            this.betAll[i].text = "0";
+        }
+    };
     Game.prototype.updatePayBack = function (occasion, total) {
         var money = 0;
-        if (occasion == "coin") {
+        if (occasion == "coin" && this.moneyType == "coin") {
             this.baseInfo.coin = total;
             money = this.baseInfo.coin;
         }
-        else if (occasion == "silver") {
+        else if (occasion == "silver" && this.moneyType == "silver") {
             this.baseInfo.silver = total;
             money = this.baseInfo.silver;
         }
@@ -484,6 +493,8 @@ var Game = (function (_super) {
     };
     // 重新初始化
     Game.prototype.replay = function () {
+        // 重置押注总额
+        this.resetMaxBet();
         // 结果页遮罩效果初始化
         for (var i = 0; i < this.results.length; i++) {
             this.results[i].visible = false;
@@ -585,6 +596,17 @@ var Game = (function (_super) {
             else {
                 this.wu_cards[i].texture = RES.getRes(Utils.mixCard(wuData[i][0]) + "_" + Utils.mixCard(wuData[i][1]) + "_png");
             }
+        }
+    };
+    Game.prototype.showCardBase = function (isShow) {
+        for (var i = 0; i < this.wei_cards.length; i++) {
+            this.wei_cards[i].visible = isShow;
+        }
+        for (var i = 0; i < this.shu_cards.length; i++) {
+            this.shu_cards[i].visible = isShow;
+        }
+        for (var i = 0; i < this.wu_cards.length; i++) {
+            this.wu_cards[i].visible = isShow;
         }
     };
     return Game;
