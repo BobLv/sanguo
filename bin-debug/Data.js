@@ -15,13 +15,13 @@ var Data = (function () {
         console.log(">>>>>>>>>>>>>>>>>>closeWeb<<<<<<<<<<<<<<<<");
         closeWeb();
     };
-    Data.pay = function () {
+    Data.pay = function (type) {
         console.log(">>>>>>>>>>>>>>>>>>recharge<<<<<<<<<<<<<<<<");
-        recharge();
+        recharge(type);
     };
-    Data.noMoney = function () {
+    Data.noMoney = function (type) {
         console.log(">>>>>>>>>>>>>>>>>>notEnough<<<<<<<<<<<<<<<<");
-        notEnough();
+        notEnough(type);
     };
     Data.winOrLose = function () {
         console.log(">>>>>>>>>>>>>>>>>>bet<<<<<<<<<<<<<<<<");

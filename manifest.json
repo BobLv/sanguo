@@ -10,6 +10,7 @@
 	"game": [
 		"bin-debug/AssetAdapter.js",
 		"bin-debug/Data.js",
+		"bin-debug/Desc.js",
 		"bin-debug/Game.js",
 		"bin-debug/Lishi.js",
 		"bin-debug/LoadingUI.js",

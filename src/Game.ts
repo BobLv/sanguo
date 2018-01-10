@@ -81,6 +81,7 @@ class Game extends eui.Component implements  eui.UIComponent {
 
 	private result:Result = null;
 	private history:Lishi = null;
+	private desc:Desc = null;
 	private lishi:eui.Button = null;
 	private guanbi:eui.Button = null;
 	private bangzhu:eui.Button = null;
@@ -377,9 +378,11 @@ class Game extends eui.Component implements  eui.UIComponent {
 				Data.close();
 			break;
 			case this.bangzhu:
+				this.desc = new Desc();
+				this.addChild(this.desc);
 			break;
 			case this.chongzhi:
-				Data.pay();
+				Data.pay(this.moneyType);
 			break;
 		}
 		if (target == this.weiScoreBg || target == this.shuScoreBg || target == this.wuScoreBg) {
@@ -415,7 +418,7 @@ class Game extends eui.Component implements  eui.UIComponent {
 						}
 					});
 				}else {
-					Data.noMoney();
+					Data.noMoney(this.moneyType);
 				}
 			}
 		}
@@ -468,6 +471,13 @@ class Game extends eui.Component implements  eui.UIComponent {
 			}
 		}
 	}
+
+	private resetMaxBet() {
+		for (var i = 0; i < this.betAll.length; i++) {
+			this.betAll[i].text = "0";
+		}
+	}
+
 	public updatePayBack(occasion:string, total:number) {
 		var money = 0;
 		if (occasion == "coin") {

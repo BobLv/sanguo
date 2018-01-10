@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,baozi_mark_png,danpai_mark_png,duizi_mark_png,gongxiying_bg_png,guang_png,jinbi_png,lishijilu_png,paimiandi_png,sheng_png,sheng_paimian_png,shu_png,shu_bg_png,shunzi_mark_png,simayi_png,simayi_bg_png,timeOut_bg_png,tonghua_mark_png,tonghuashun_mark_png,wei_bg_png,wu_bg_png,yinbi_png,zhouyu_png,zhouyu_bg_png,zhugeliang_png,zhugeliang_bg_png,guanbi_1_png,guanbi_2_png,jinbi_1_png,jinbi_2_png,jinbi_3_png,shuoming_1_png,shuoming_2_png,xinshou_1_png,xinshou_2_png,xinshou_3_png,f_1_png,f_10_png,f_11_png,f_12_png,f_13_png,f_2_png,f_3_png,f_4_png,f_5_png,f_6_png,f_7_png,f_8_png,f_9_png,h_1_png,h_10_png,h_11_png,h_12_png,h_13_png,h_2_png,h_3_png,h_4_png,h_5_png,h_6_png,h_7_png,h_8_png,h_9_png,m_1_png,m_10_png,m_11_png,m_12_png,m_13_png,m_2_png,m_3_png,m_4_png,m_5_png,m_6_png,m_7_png,m_8_png,m_9_png,r_1_png,r_10_png,r_11_png,r_12_png,r_13_png,r_2_png,r_3_png,r_4_png,r_5_png,r_6_png,r_7_png,r_8_png,r_9_png,bg_png,bgEffect_png,choice_1_png,choice_2_png,lishi_png,noticeBg_png,scoreBg_png,historyBg_png,closeBtn_png,new_png",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,baozi_mark_png,danpai_mark_png,duizi_mark_png,gongxiying_bg_png,guang_png,jinbi_png,lishijilu_png,paimiandi_png,sheng_png,sheng_paimian_png,shu_png,shu_bg_png,shunzi_mark_png,simayi_png,simayi_bg_png,timeOut_bg_png,tonghua_mark_png,tonghuashun_mark_png,wei_bg_png,wu_bg_png,yinbi_png,zhouyu_png,zhouyu_bg_png,zhugeliang_png,zhugeliang_bg_png,guanbi_1_png,guanbi_2_png,jinbi_1_png,jinbi_2_png,jinbi_3_png,shuoming_1_png,shuoming_2_png,xinshou_1_png,xinshou_2_png,xinshou_3_png,f_1_png,f_10_png,f_11_png,f_12_png,f_13_png,f_2_png,f_3_png,f_4_png,f_5_png,f_6_png,f_7_png,f_8_png,f_9_png,h_1_png,h_10_png,h_11_png,h_12_png,h_13_png,h_2_png,h_3_png,h_4_png,h_5_png,h_6_png,h_7_png,h_8_png,h_9_png,m_1_png,m_10_png,m_11_png,m_12_png,m_13_png,m_2_png,m_3_png,m_4_png,m_5_png,m_6_png,m_7_png,m_8_png,m_9_png,r_1_png,r_10_png,r_11_png,r_12_png,r_13_png,r_2_png,r_3_png,r_4_png,r_5_png,r_6_png,r_7_png,r_8_png,r_9_png,bg_png,bgEffect_png,choice_1_png,choice_2_png,lishi_png,noticeBg_png,scoreBg_png,historyBg_png,closeBtn_png,new_png,infoBg_png",
 			"name": "preload"
 		}
 	],
@@ -620,6 +620,11 @@
 			"name": "new_png",
 			"type": "image",
 			"url": "assets/res/new.png"
+		},
+		{
+			"name": "infoBg_png",
+			"type": "image",
+			"url": "assets/res/infoBg.png"
 		}
 	]
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="desc" width="640" height="1136" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="bgEffect_png" x="0" y="0" width="100%" height="100%" locked="true"/>
+	<e:Image source="infoBg_png" horizontalCenter="0" verticalCenter="0" locked="true"/>
+	<e:Label text="游戏说明" y="293" size="40" horizontalCenter="0" locked="true"/>
+	<e:Scroller width="480" height="510" x="80" y="350">
+		<e:Group width="100%" height="100%">
+			<e:Label text="火拼三国是一款休闲益智的扑克游戏。" x="8" y="16" textColor="0x000000" size="22" locked="true"/>
+			<e:Label text="三国时期魏、蜀、吴绝代智将司马懿、诸葛亮、\n周瑜在战场上都是足智多谋、精于算计的典范，\n假如把他们放到牌桌上，三人又会演绎怎样的\n精彩对局呢？从今天起，司马懿、诸葛亮、周\n瑜三人每天都会聚在一起打牌，你会支持哪一\n位呢？" x="8" y="56" textColor="0x000000" size="22" height="135" textAlign="left" verticalAlign="top"/>
+			<e:Label text="玩法介绍： \n1、比赛开始后，三位智将代表魏、蜀、吴三国\n，依次拿到手牌，您可以为支持的一方增加战力\n值。比赛结束后，胜利的国家会馈赠支持者以您\n支持金额2.8~3倍的金币，失败的国家也会因为\n得到了您的支持得以休养生息，以备再次崛起。\n点击下方战力值金额可选择单次支持的额度，选\n择后，点击各方势力卷轴，即可支持势力，点击\n多次可重复支持。  \n\n2、三国史书会记录每回合的比赛结果，您可以\n点击右下角按钮查看最近20回合的比赛结果。 \n\n3、火拼三国中，牌型大小依次为：豹子&gt;同花\n顺&gt;同花&gt;顺子&gt;对子&gt;单牌，大小相同时比较最\n大牌的花色大小，黑桃&gt;红桃&gt;梅花&gt;方块" x="8" y="200.54" textColor="0x000000" size="22" height="360" verticalAlign="top"/>
+			<e:Label text="【牌型介绍】 \n1、豹子：三张牌点数相同 \n2、同花顺：三张牌点数连续且花色相同 \n3、同花：三张牌花色相同 \n4、顺子：三张牌点数连续 \n5、对子：三张牌中存在两张点数一致的牌 \n6、单牌：三张牌点数不连续，也不存在两张点\n数一致的牌，花色也不满足同花的要求。" x="6.48" y="570" textColor="0x000000" size="22" height="180" textAlign="left" verticalAlign="top"/>
+			<e:Label text="【牌型组合大小】 \n1、豹子（AAA最大，222最小） \n2、同花顺（AKQ最大，A23最小） \n3、同花（AKJ最大，352最小） \n4、顺子（AKQ最大，234最小） \n5、对子（AAK最大，223最小） \n6、单张（AKJ最大，352最小）" x="8" y="760" textColor="0x000000" size="22" height="180" textAlign="left" verticalAlign="top"/>
+		</e:Group>
+	</e:Scroller>
+	<e:Button id="closeBtn" label="" verticalCenter="358" horizontalCenter="0">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="closeBtn_png" source.down="closeBtn_png" source.disabled="closeBtn_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+</e:Skin>
