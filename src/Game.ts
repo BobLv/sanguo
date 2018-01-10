@@ -471,6 +471,13 @@ class Game extends eui.Component implements  eui.UIComponent {
 			}
 		}
 	}
+
+	private resetMaxBet() {
+		for (var i = 0; i < this.betAll.length; i++) {
+			this.betAll[i].text = "0";
+		}
+	}
+
 	public updatePayBack(occasion:string, total:number) {
 		var money = 0;
 		if (occasion == "coin") {
