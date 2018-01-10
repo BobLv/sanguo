@@ -91,6 +91,7 @@ var Game = (function (_super) {
         _this.noticeStr = "";
         _this.result = null;
         _this.history = null;
+        _this.desc = null;
         _this.lishi = null;
         _this.guanbi = null;
         _this.bangzhu = null;
@@ -376,9 +377,11 @@ var Game = (function (_super) {
                 Data.close();
                 break;
             case this.bangzhu:
+                this.desc = new Desc();
+                this.addChild(this.desc);
                 break;
             case this.chongzhi:
-                Data.pay();
+                Data.pay(this.moneyType);
                 break;
         }
         if (target == this.weiScoreBg || target == this.shuScoreBg || target == this.wuScoreBg) {
@@ -416,7 +419,7 @@ var Game = (function (_super) {
                     });
                 }
                 else {
-                    Data.noMoney();
+                    Data.noMoney(this.moneyType);
                 }
             }
         }

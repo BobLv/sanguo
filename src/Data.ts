@@ -28,14 +28,14 @@ class Data {
         closeWeb();
     }
 
-    public static pay() {
+    public static pay(type) {
         console.log(">>>>>>>>>>>>>>>>>>recharge<<<<<<<<<<<<<<<<");
-        recharge();
+        recharge(type);
     }
 
-    public static noMoney() {
+    public static noMoney(type) {
         console.log(">>>>>>>>>>>>>>>>>>notEnough<<<<<<<<<<<<<<<<");
-        notEnough();
+        notEnough(type);
     }
 
     public static winOrLose() {
