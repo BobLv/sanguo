@@ -97,7 +97,7 @@
 		<e:Image source="zhugeliang_png" y="12" horizontalCenter="8" x="220" scaleX="1" scaleY="1" locked="true"/>
 		<e:Image source="simayi_png" y="10" left="2" x="2" scaleX="1" scaleY="1" locked="true"/>
 	</e:Group>
-	<e:Group id="touzhu" width="100%" height="270" y="781" x="0" visible="false">
+	<e:Group id="touzhu" width="100%" height="270" y="781" x="0">
 		<e:Image id="wei_bg" source="bgEffect_png" scale9Grid="1,1,8,8" width="213" height="100%" verticalCenter="0" left="0" x="0" y="0" scaleX="1" scaleY="1" visible="false" locked="true"/>
 		<e:Image id="shu_bg" source="bgEffect_png" scale9Grid="1,1,8,8" width="213" height="100%" verticalCenter="0" horizontalCenter="-0.5" visible="false" locked="true"/>
 		<e:Image id="wu_bg" source="bgEffect_png" scale9Grid="1,1,8,8" width="214" height="100%" verticalCenter="0" right="0" visible="false" locked="true"/>

@@ -13,19 +13,40 @@ var Data = (function () {
     };
     Data.close = function () {
         console.log(">>>>>>>>>>>>>>>>>>closeWeb<<<<<<<<<<<<<<<<");
-        closeWeb();
+        alert("我是 " + Utils.deviceOS());
+        if (Utils.deviceOS() == "iOS") {
+            closeWeb();
+        }
+        else if (Utils.deviceOS() == "Android") {
+            appInterface.closeWeb();
+        }
     };
-    Data.pay = function (type) {
+    Data.pay = function (type, curMoney) {
         console.log(">>>>>>>>>>>>>>>>>>recharge<<<<<<<<<<<<<<<<");
-        recharge(type);
+        if (Utils.deviceOS() == "iOS") {
+            recharge(type, curMoney);
+        }
+        else if (Utils.deviceOS() == "Android") {
+            appInterface.recharge(type, curMoney);
+        }
     };
-    Data.noMoney = function (type) {
+    Data.noMoney = function (type, curMoney) {
         console.log(">>>>>>>>>>>>>>>>>>notEnough<<<<<<<<<<<<<<<<");
-        notEnough(type);
+        if (Utils.deviceOS() == "iOS") {
+            notEnough(type, curMoney);
+        }
+        else if (Utils.deviceOS() == "Android") {
+            appInterface.notEnough(type, curMoney);
+        }
     };
     Data.winOrLose = function () {
         console.log(">>>>>>>>>>>>>>>>>>bet<<<<<<<<<<<<<<<<");
-        bet();
+        if (Utils.deviceOS() == "iOS") {
+            bet();
+        }
+        else if (Utils.deviceOS() == "Android") {
+            appInterface.bet();
+        }
     };
     //域名
     Data.apiDomain = "";

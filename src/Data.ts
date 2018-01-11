@@ -25,21 +25,37 @@ class Data {
 
     public static close() {
         console.log(">>>>>>>>>>>>>>>>>>closeWeb<<<<<<<<<<<<<<<<");
-        closeWeb();
+        if (Utils.deviceOS() == "iOS") {
+            closeWeb();
+        }else if (Utils.deviceOS() == "Android") {
+            appInterface.closeWeb();
+        }
     }
 
-    public static pay(type) {
+    public static pay(type, curMoney) {
         console.log(">>>>>>>>>>>>>>>>>>recharge<<<<<<<<<<<<<<<<");
-        recharge(type);
+        if (Utils.deviceOS() == "iOS") {
+            recharge(type, curMoney);
+        }else if (Utils.deviceOS() == "Android") {
+            appInterface.recharge(type, curMoney);
+        }
     }
 
-    public static noMoney(type) {
+    public static noMoney(type, curMoney) {
         console.log(">>>>>>>>>>>>>>>>>>notEnough<<<<<<<<<<<<<<<<");
-        notEnough(type);
+        if (Utils.deviceOS() == "iOS") {
+            notEnough(type, curMoney);
+        }else if (Utils.deviceOS() == "Android") {
+            appInterface.notEnough(type, curMoney);
+        }
     }
 
     public static winOrLose() {
         console.log(">>>>>>>>>>>>>>>>>>bet<<<<<<<<<<<<<<<<");
-        bet();
+        if (Utils.deviceOS() == "iOS") {
+            bet();
+        }else if (Utils.deviceOS() == "Android") {
+            appInterface.bet();
+        }
     }
 }

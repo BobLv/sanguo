@@ -57,6 +57,7 @@ var Game = (function (_super) {
         _this.checkBet = 0;
         _this.chongzhi = null;
         _this.chip = null;
+        _this.betMax = JSON.parse('{"coin":[0,0,0],"silver":[0,0,0]}');
         // 状态
         _this.zhunbei = null;
         _this.touzhu = null;
@@ -141,7 +142,7 @@ var Game = (function (_super) {
                 this.showCard(commond01["data"]["cards"]["cards"]);
             }
             // 默认开启一个
-            this.checkBoxByTarget(this.coin_check2);
+            this.checkBoxByTarget(this.coin_check1);
             this.checkBoxByTarget(this.choice1);
         });
     };
@@ -231,7 +232,7 @@ var Game = (function (_super) {
                     break;
             }
             // 重置押注总额
-            this.resetMaxBet();
+            this.resetMaxBet(1);
             // 切换 金币 和 银币 之前的押注效果
             this.setBetValue(0);
             if (this._state == 4 || this._state == 5) {
@@ -385,7 +386,7 @@ var Game = (function (_super) {
                 this.addChild(this.desc);
                 break;
             case this.chongzhi:
-                Data.pay(this.moneyType);
+                Data.pay(this.moneyType, this.baseInfo[this.moneyType]);
                 break;
         }
         if (target == this.weiScoreBg || target == this.shuScoreBg || target == this.wuScoreBg) {
@@ -423,7 +424,7 @@ var Game = (function (_super) {
                     });
                 }
                 else {
-                    Data.noMoney(this.moneyType);
+                    Data.noMoney(this.moneyType, this.baseInfo[this.moneyType]);
                 }
             }
         }
@@ -465,18 +466,25 @@ var Game = (function (_super) {
         this.baseInfo[this.moneyType] = score;
     };
     Game.prototype.updateMaxBet = function (betScore, index, type) {
-        if (this.moneyType != type)
-            return;
-        for (var i = 0; i < this.betAll.length; i++) {
-            if (index == i + 1) {
-                this.betAll[i].text = betScore.toString();
-                return;
+        if (betScore > this.betMax[type][index - 1]) {
+            this.betMax[type][index - 1] = betScore;
+            if (this.moneyType == type) {
+                this.betAll[index - 1].text = betScore.toString();
             }
         }
     };
-    Game.prototype.resetMaxBet = function () {
-        for (var i = 0; i < this.betAll.length; i++) {
-            this.betAll[i].text = "0";
+    Game.prototype.resetMaxBet = function (type) {
+        if (type == 0) {
+            for (var i = 0; i < this.betAll.length; i++) {
+                this.betAll[i].text = "0";
+                this.betMax["coin"][i] = 0;
+                this.betMax["silver"][i] = 0;
+            }
+        }
+        else if (type == 1) {
+            for (var i = 0; i < this.betAll.length; i++) {
+                this.betAll[i].text = this.betMax[this.moneyType][i];
+            }
         }
     };
     Game.prototype.updatePayBack = function (occasion, total) {
@@ -494,7 +502,7 @@ var Game = (function (_super) {
     // 重新初始化
     Game.prototype.replay = function () {
         // 重置押注总额
-        this.resetMaxBet();
+        this.resetMaxBet(0);
         // 结果页遮罩效果初始化
         for (var i = 0; i < this.results.length; i++) {
             this.results[i].visible = false;
